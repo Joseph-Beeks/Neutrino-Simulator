@@ -6,7 +6,7 @@ from config import *
 
 def sim_vs_analytical(data):
     # Plotting analytical vs quantum
-    fig, ax = plt.subplots(figsize=(14, 5)) 
+    fig, ax = plt.subplots(figsize=(6,4)) 
 
     analyticalData = data[0]
     qData = data[1]
@@ -18,29 +18,42 @@ def sim_vs_analytical(data):
     # Quantum simulation with error bars for electron neutrino
     ax.errorbar(qData[0], qData[1], 
                 yerr=[qData[3], qData[4]],  # Lower and upper error bars
-                fmt='o', label="Quantum Simulation P(νe → νe)", color='orange')
+                fmt='o', 
+                markerfacecolor='orange', 
+                markeredgecolor='orange',
+                alpha=0.5,
+                ecolor='orange',
+                label="Quantum Simulation P(νe → νe)", color='orange')
     
     # Quantum simulation with error bars for muon neutrino
     ax.errorbar(qData[0], qData[2], 
                 yerr=[qData[5], qData[6]],  # Lower and upper error bars
-                fmt='s', label="Quantum Simulation P(νe → νμ)", color='green')
+                fmt='s', 
+                markerfacecolor='green', 
+                markeredgecolor='green',
+                alpha=0.5,
+                ecolor='green',
+                label="Quantum Simulation P(νe → νμ)", color='green')
     
     # Formatting
+    ax.set_ylim(top=1.3)
     ax.set_xlabel("L/E (km/GeV)")
     ax.set_ylabel("Probability")
-    ax.set_title("Analytical vs Simulation")
+    ax.set_title("Analytical vs Simulated  Neutrino Flavour Probability")
     ax.grid(True)
-    ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+    ax.legend(loc='upper center', bbox_to_anchor=(0.425, 1) )#loc='center left', bbox_to_anchor=(1, 0.5))
     
     plt.tight_layout()
+    plt.savefig("simulation_vs_analytical.png", dpi=300) 
+
     plt.show()
     return
 
 def correlation_plot(data):
-    fig, ax = plt.subplots(figsize=(7, 5))
+    fig, ax = plt.subplots(figsize=(6,4))
 
     # Set title for the plot
-    fig.suptitle("Linear Regression of Quantum Simulation vs. Analytical Solution", fontsize=14)
+    fig.suptitle("Linear Regression of Quantum Simulation vs. Analytical Solution")#, fontsize=14)
 
     analyticalData = data[0]
     qData = data[1]
@@ -67,7 +80,9 @@ def correlation_plot(data):
     ax.set_xlabel("Analytical Probability")
     ax.set_ylabel("Quantum Simulation Probability")
     ax.grid(True, alpha=0.3)
-    ax.legend(fontsize=8)
+    ax.legend()#fontsize=8)
 
     plt.tight_layout()
+    plt.savefig("correlation.png", dpi=300)  
+    
     plt.show()
