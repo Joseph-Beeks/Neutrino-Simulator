@@ -20,9 +20,6 @@ from qiskit_aer import AerSimulator #Importing AerSimulator (Local Sim)
 from qiskit_ibm_runtime import Options, QiskitRuntimeService,SamplerV2 as Sampler #Sampler
 from qiskit_ibm_runtime.fake_provider import FakeBrisbane
 
-#Loading your IBM Quantum account
-service = QiskitRuntimeService(channel="ibm_quantum",token=tokenIBM)
-
 ### COMPUTING ANALYTICAL SOLUTION CLASSICALLY ###
 
 def analytical_probabilities():
@@ -64,8 +61,9 @@ def quantum_simulation():
         simulator = AerSimulator.from_backend(fake_backend)
         
     elif realQPU == True:
+        #Loading your IBM Quantum account
         service = QiskitRuntimeService(channel="ibm_quantum",token=tokenIBM)
-        simulator = service.backend("ibm_brisbane")
+        simulator = service.backend("ibm_sherbrooke")
 
     # Define Hamiltonian
     gamma = 2 * 1.27 * deltaM12 / E
