@@ -15,4 +15,5 @@ The code is structured to facilitate simulation on both real quantum hardware an
 
 ## Usage
 
-This requires you have an IBM token to run on real quantum hardware which you can put in the config.py. 
+This requires you have an IBM token to run on real quantum hardware which you can put in the config.py. Running the items in the main notebook file produces a visuaisation of the neutrino behaviour as well as the data from your experiment in case you wish to use your results again. Below is an example output that used a real QPU.
+![Quantum Circuit Diagram](Images/circuit_diagram.png)
