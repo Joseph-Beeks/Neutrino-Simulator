@@ -7,7 +7,8 @@
 
 ## Overview
 
-This repository accompanies my final year Master's research project, and presents a quantum computational framework to simulate neutrino flavour oscillations in the simplified two-flavour vacuum oscillation scenario. The simulation is implemented using IBM’s [Qiskit](https://qiskit.org) and benchmarked against classical analytical results derived from standard neutrino oscillation theory.
+This repository accompanies my final year Master's research project, and presents a quantum computational framework to simulate neutrino flavour oscillations in the simplified two-flavour vacuum oscillation scenario. The simulation is implemented using IBM’s [Qiskit](https://qiskit.org) and benchmarked against classical analytical results derived from standard neutrino oscillation theory. Below shows the quantum circuit.
+![Quantum Circuit Diagram](Images/circuit.png)
 
 The code is structured to facilitate simulation on both real quantum hardware and fake-backends. High statistical fidelity is achieved through repeated sampling and error analysis, and the simulator has been validated through classical comparison with theoretical expectations.
 
@@ -16,4 +17,4 @@ The code is structured to facilitate simulation on both real quantum hardware an
 ## Usage
 
 This requires you have an IBM token to run on real quantum hardware which you can put in the config.py. Running the items in the main notebook file produces a visuaisation of the neutrino behaviour as well as the data from your experiment in case you wish to use your results again. Below is an example output that used a real QPU.
-![Quantum Circuit Diagram](Images/circuit.png)
+![Example Oscillation](Images/oscillation_probabilities.png)
